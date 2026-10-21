@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#071713" />
+  <title>CyberShield AI — Personal Cyber Safety</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="auth-screen" id="auth-screen">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <a class="brand auth-brand" href="#signin"><span class="brand-mark">✳</span><span>cybershield<span class="brand-ai">.ai</span></span></a>
+      <div class="eyebrow">YOUR PERSONAL CYBER SAFETY SPACE</div>
+      <h1 id="auth-title">Welcome back.</h1>
+      <p class="auth-intro" id="auth-intro">Sign in with your email and password to continue.</p>
+      <div class="auth-tabs" role="tablist" aria-label="Account access">
+        <button type="button" id="auth-signin-tab" class="selected" role="tab" aria-selected="true">Sign in</button>
+        <button type="button" id="auth-signup-tab" role="tab" aria-selected="false">Create account</button>
+      </div>
+      <form id="auth-form" novalidate>
+        <label for="auth-email">EMAIL ADDRESS</label>
+        <input id="auth-email" type="email" autocomplete="email" required placeholder="you@example.com">
+        <label for="auth-password">PASSWORD</label>
+        <input id="auth-password" type="password" autocomplete="current-password" required placeholder="Enter your password">
+        <div id="auth-confirm-wrap" hidden><label for="auth-confirm">CONFIRM PASSWORD</label><input id="auth-confirm" type="password" autocomplete="new-password" placeholder="Re-enter your password"></div>
+        <button class="button button-dark auth-submit" id="auth-submit" type="submit">Sign in <span>→</span></button>
+      </form>
+      <p id="auth-feedback" class="auth-feedback" role="status" aria-live="polite">Account sign-in needs to be connected to your Supabase project first.</p>
+      <p class="auth-privacy">Your password is handled by Supabase Auth. CyberShield does not store or log your password.</p>
+      <details class="auth-setup"><summary>Set up sign-in</summary><p>Add your Supabase Project URL and public anon/publishable key to <code>auth-config.js</code>, then add your Netlify site URL to Supabase Auth's allowed redirect URLs. Never use a service-role key in this browser app.</p></details>
+    </section>
+  </main>
+  <div class="app-shell" id="app-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="CyberShield AI home"><span class="brand-mark">✳</span><span>cybershield<span class="brand-ai">.ai</span></span></a>
+      <div class="workspace-label">YOUR SPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="home"><span>⌂</span>Overview</button>
+        <button class="nav-item" data-page="assistant"><span>✳</span>Ask CyberShield</button>
+        <button class="nav-item" data-page="device"><span>▣</span>Device check</button>
+        <button class="nav-item" data-page="threats"><span>◉</span>Threat briefings <i class="nav-dot"></i></button>
+        <button class="nav-item" data-page="learn"><span>▤</span>Learn</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-page="privacy"><span>◇</span>Privacy center</button>
+        <div class="profile-card"><button class="profile-open" id="profile-open" type="button" aria-label="Open profile and settings"><span class="avatar" id="profile-avatar">A</span><span class="profile-copy"><strong id="profile-name">Signed in</strong><small id="auth-user-email">Personal account</small><small id="profile-progress">0 of 9 modules completed</small></span></button><button class="more" id="auth-signout" type="button" aria-label="Sign out" title="Sign out">↪</button></div>
+      </div>
+      <div class="sidebar-foot"><span class="status-dot"></span>Privacy-first protection <span class="lock">♢</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb">Your space <span>/</span> <b id="crumb">Overview</b></div><div class="top-actions"><span class="today" id="today"></span><button class="icon-button" id="notifications" aria-label="Notifications">♧<i></i></button><button class="avatar mini profile-top-button" id="profile-open-top" type="button" aria-label="Open profile and settings">A</button></div></header>
+
+      <section class="page active" id="page-home">
+        <div class="welcome-row"><div><div class="eyebrow">WEDNESDAY, OCTOBER 7</div><h1>Your digital life,<br class="mobile-break"> a little safer.</h1><p class="subhead">A clear view of your security, with calm advice you can actually use.</p></div><button class="button button-dark" data-go="assistant"><span>✳</span> Ask CyberShield</button></div>
+        <div class="hero-grid">
+          <article class="score-card">
+            <div class="card-kicker"><span class="shield-icon">⬡</span> YOUR SECURITY SNAPSHOT <span class="live-label"><i></i> DEMO DEVICE</span></div>
+            <div class="score-main"><div class="score-number">86<span>/100</span></div><div class="score-status"><span class="pill pill-green">GOOD</span><p>No major security indicators<br>need immediate attention.</p></div></div>
+            <div class="score-meter"><span style="width:86%"></span></div>
+            <div class="score-foot"><span>Last check · Today, 9:42 AM</span><button class="text-button" data-go="device">See what we checked <span>→</span></button></div>
+          </article>
+          <article class="attention-card"><div class="card-title-line"><span class="attention-icon">✧</span><span class="section-label">ONE THING TO REVIEW</span><button class="quiet-more" aria-label="More">···</button></div><h3>One app has broad photo access</h3><p>A photo editor can need this, but it’s worth checking whether “all photos” access is necessary.</p><button class="button button-outline" data-go="device">Review app permissions <span>→</span></button><div class="card-watermark">✳</div></article>
+        </div>
+        <div class="section-heading"><div><h2>Your security, at a glance</h2><p>Small steps make a meaningful difference.</p></div><button class="text-button" data-go="device">View device check <span>→</span></button></div>
+        <div class="quick-grid">
+          <button class="quick-card" data-go="device"><span class="quick-icon icon-mint">▣</span><span class="quick-label">DEVICE SECURITY</span><strong>3 of 4 checks look good</strong><small>One setting to review</small><span class="quick-arrow">↗</span></button>
+          <button class="quick-card" data-go="threats"><span class="quick-icon icon-lilac">◉</span><span class="quick-label">THREAT BRIEFING</span><strong>Stay informed, not alarmed</strong><small>Sources and confidence are shown</small><span class="quick-arrow">↗</span></button>
+          <button class="quick-card" data-go="learn"><span class="quick-icon icon-yellow">▤</span><span class="quick-label">YOUR LEARNING PATH</span><strong id="home-learning-title">Start with the basics</strong><small id="home-learning-subtitle">Lesson 1 · What is cybersecurity?</small><span class="quick-arrow">↗</span></button>
+        </div>
+        <div class="bottom-grid"><article class="panel timeline-panel"><div class="panel-heading"><div><h2>Recent activity</h2><p>Why your security view changed</p></div><button class="text-button" data-go="device">Full history <span>→</span></button></div><div class="timeline-item"><span class="timeline-point mint"></span><div><strong>Security check completed</strong><small>Today · 9:42 AM · 4 checks available</small></div><span class="activity-tag">ALL CLEAR</span></div><div class="timeline-item"><span class="timeline-point yellow"></span><div><strong>Photo access highlighted for review</strong><small>Today · 9:42 AM · No score change</small></div><span class="activity-tag muted">FYI</span></div><div class="timeline-item"><span class="timeline-point gray"></span><div><strong>Device check-in</strong><small>Yesterday · 8:15 PM</small></div><span class="activity-tag muted">ROUTINE</span></div></article>
+        <article class="panel ask-panel"><span class="quick-icon icon-lilac">✳</span><div class="eyebrow">HERE WHEN YOU NEED US</div><h2>Something feel off?</h2><p>Tell us what happened in your own words. No technical terms needed.</p><button class="button button-dark" data-go="assistant">Ask a question <span>→</span></button><div class="ask-bubbles"><span>“Is this message real?”</span><span>“I clicked a link”</span></div></article></div>
+        <div class="footer-note"><span>ⓘ</span> This is a demonstration view. Device signals are sample data; a browser cannot inspect your phone.</div>
+      </section>
+
+      <section class="page" id="page-assistant">
+        <div class="page-heading"><div class="eyebrow">YOUR PERSONAL CYBER GUIDE</div><h1>Ask anything.<br>We'll figure it out together.</h1><p>No question is too basic. Describe what happened in your own words.</p></div>
+        <section class="panel sms-checker" aria-labelledby="sms-checker-title">
+          <div class="sms-checker-heading"><span class="quick-icon icon-yellow">✉</span><div><div class="eyebrow">LOCAL MESSAGE CHECK</div><h2 id="sms-checker-title">Check a suspicious SMS</h2></div></div>
+          <p>Paste a message to check it for common spam patterns. The message is analyzed in this browser and is not saved or sent to a server.</p>
+          <label class="sms-label" for="sms-message">MESSAGE TEXT</label>
+          <textarea id="sms-message" rows="5" maxlength="5000" placeholder="Paste the SMS here. Remove any personal details you don't want displayed on screen."></textarea>
+          <div class="sms-controls"><span id="sms-model-status">Spam model is ready to load when you check a message.</span><button class="button button-dark" id="check-sms" type="button">Check message <span>→</span></button></div>
+          <div id="sms-result" class="sms-result" role="status" aria-live="polite" hidden></div>
+          <div class="sms-caveat">This model learned from an older English SMS dataset. Its result is only a clue—not proof a message is safe or malicious. Verify with the sender through an official channel.</div>
+        </section>
+        <div class="chat-layout"><div class="chat-card"><div class="chat-top"><div class="assistant-avatar">✳</div><div><strong>CyberShield AI</strong><small><i class="status-dot"></i> Connected AI assistant · Secure sign-in required</small></div><div class="level-control"><label for="level">EXPLANATION</label><select id="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div></div><div class="chat-messages" id="chat-messages"><div class="message assistant-message"><span class="message-avatar">✳</span><div class="bubble"><p>Hi! Ask me cybersecurity questions or describe what happened. I’ll explain things clearly and suggest safe next steps. Please avoid including passwords, sign-in codes, or payment details.</p><small>Just now</small></div></div><div class="suggestions"><button>What is phishing?</button><button>I clicked a strange link</button><button>How can I protect my phone?</button><button>Someone says my bank account will close</button></div></div><form id="chat-form" class="chat-input"><input id="chat-input" autocomplete="off" placeholder="Ask in your own words…" aria-label="Your question"><button type="submit" aria-label="Send message">↑</button></form><div class="chat-disclaimer">Your question is sent securely to CyberShield’s server and AI provider to generate a reply. Avoid including passwords, one-time codes, or sensitive personal details. Guidance is educational, not a forensic diagnosis.</div></div><aside class="chat-side"><div class="panel"><div class="eyebrow">QUICK SUPPORT</div><h3>Think something happened?</h3><p>We’ll focus on safe next steps, one at a time.</p><button class="button button-outline full" data-prompt="I think I may have been scammed. What should I do?">Get help now <span>→</span></button></div><div class="panel source-panel"><span class="quick-icon icon-mint">◇</span><h3>Advice you can trust</h3><p>We separate confirmed facts from reports, explain uncertainty, and link to reliable sources.</p><a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noreferrer">CISA: Secure Our World ↗</a><a href="https://www.cert-in.org.in/" target="_blank" rel="noreferrer">CERT-In ↗</a></div></aside></div>
+      </section>
+
+      <section class="page" id="page-device">
+        <div class="page-heading split-heading"><div><div class="eyebrow">DEVICE SECURITY</div><h1>Check my phone</h1><p>Review the security signals your device makes available.</p></div><button class="button button-dark" id="run-check"><span>↻</span> Run security check</button></div>
+        <div class="limitation-banner"><span>ⓘ</span><div><strong>This demo can't access your phone.</strong><p>Real monitoring depends on Android or iOS permissions. This browser preview uses sample signals and never scans your device.</p></div><button class="close-banner" aria-label="Dismiss">×</button></div>
+        <div class="device-summary panel"><div class="device-score"><div class="score-ring"><span>86<small>/100</small></span></div><div><span class="pill pill-green">GOOD</span><h2>No significant indicators detected</h2><p>This isn't proof that a phone is free of threats. A few settings deserve a closer look.</p></div></div><div class="device-meta"><span><small>DEVICE</small><strong>Example Android phone</strong></span><span><small>LAST CHECK</small><strong id="last-check">Today, 9:42 AM</strong></span><span><small>CHECK MODE</small><strong>On demand · Sample</strong></span></div></div>
+        <div class="section-heading compact"><div><h2>What we checked</h2><p>Information shown here is illustrative sample data.</p></div></div><div class="checks-grid"><article class="check-row"><span class="check-icon good">✓</span><div><strong>Screen lock</strong><small>A screen lock is reported as enabled.</small></div><span class="check-state state-good">LOOKS GOOD</span></article><article class="check-row"><span class="check-icon good">✓</span><div><strong>Device encryption</strong><small>Encryption status is reported as enabled.</small></div><span class="check-state state-good">LOOKS GOOD</span></article><article class="check-row"><span class="check-icon good">✓</span><div><strong>System updates</strong><small>Sample patch status is current.</small></div><span class="check-state state-good">LOOKS GOOD</span></article><article class="check-row"><span class="check-icon review">!</span><div><strong>App permissions</strong><small>One app has broad photo access. Review if needed.</small></div><button class="check-state state-review" data-permissions>REVIEW</button></article></div>
+        <div class="not-checked panel"><h3>What a normal app cannot inspect</h3><div class="not-checked-grid"><p><b>Private messages & calls</b><br>Apps cannot read other apps’ private conversations or secretly record calls.</p><p><b>Other apps’ private files</b><br>Mobile operating systems isolate app data from each other.</p><p><b>Proof of compromise</b><br>A settings check cannot prove that a phone has or has not been hacked.</p></div></div>
+      </section>
+
+      <section class="page" id="page-threats">
+        <div class="page-heading"><div class="eyebrow">THREAT INTELLIGENCE</div><h1>Know what matters.<br>Skip the noise.</h1><p>Briefings should show their source, date, and confidence—not just a scary headline.</p></div>
+        <div class="limitation-banner"><span>ⓘ</span><div><strong>Historical sample dataset — not live news.</strong><p>This Kaggle dataset covers 2015–2024 and contains simulated sample records. Use it for learning and trends, not as proof of real incidents or current threats. Check official advisories for current information. <a href="https://www.kaggle.com/datasets/atharvasoundankar/global-cybersecurity-threats-2015-2024" target="_blank" rel="noopener noreferrer">Open dataset source ↗</a></p></div></div>
+        <div class="filter-row" id="threat-filters"><button class="filter active">All topics</button><button class="filter">India</button><button class="filter">Mobile</button><button class="filter">Banking</button><button class="filter">Ransomware</button><button class="filter">AI</button></div>
+        <div class="dataset-summary panel" id="threat-data-summary" aria-live="polite">Loading the Kaggle dataset…</div>
+        <div class="threat-data-grid" id="threat-data" aria-live="polite"></div>
+        <div class="section-heading compact"><div><h2>Choose a topic</h2><p>Get context for the threats people ask about most.</p></div></div><div class="topic-grid"><button class="topic-card" data-topic="India"><span>🇮🇳</span><b>India</b><small>Local advisories and scams</small><i>↗</i></button><button class="topic-card" data-topic="Mobile"><span>📱</span><b>Mobile</b><small>Phone and app safety</small><i>↗</i></button><button class="topic-card" data-topic="Banking"><span>🏦</span><b>Banking</b><small>Payment and account fraud</small><i>↗</i></button><button class="topic-card" data-topic="Business"><span>🏢</span><b>Business</b><small>Incidents and data breaches</small><i>↗</i></button><button class="topic-card" data-topic="Cloud"><span>☁️</span><b>Cloud</b><small>Online accounts and storage</small><i>↗</i></button><button class="topic-card" data-topic="AI"><span>🤖</span><b>AI</b><small>AI-enabled threats</small><i>↗</i></button></div>
+      </section>
+
+      <section class="page" id="page-learn">
+        <div class="page-heading"><div class="eyebrow">LEARN AT YOUR PACE</div><h1>Cybersecurity,<br>from the beginning.</h1><p>Short, friendly lessons. No technical background needed.</p></div>
+        <div class="learn-layout"><div class="learning-path panel"><div class="panel-heading"><div><div class="eyebrow">YOUR LEARNING PATH</div><h2>Build confidence, step by step</h2></div><span class="progress-label" id="lesson-progress">0 of 9 modules completed</span></div><div class="path-list" id="path-list"></div></div><aside class="learn-aside panel"><div class="lesson-art" id="lesson-art">✳</div><div class="eyebrow" id="lesson-kicker">START HERE · 4 MIN</div><h2 id="lesson-title">What is cybersecurity?</h2><p id="lesson-summary">Think of cybersecurity as the everyday habits and tools that help keep your devices, accounts, and personal information safe.</p><button class="button button-dark full" id="start-lesson">Start module <span>→</span></button><div class="lesson-foot" id="lesson-foot">Beginner friendly <span>·</span> No jargon</div></aside></div>
+        <div class="concept-section"><div class="section-heading compact"><div><h2>Explore a concept</h2><p>Simple explanation, example, warning signs, and what to do.</p></div></div><div class="concept-grid" id="concept-grid"></div></div>
+      </section>
+
+      <section class="page" id="page-privacy">
+        <div class="page-heading"><div class="eyebrow">YOUR CHOICES, YOUR DATA</div><h1>Privacy, in plain language.</h1><p>You should always know what an app can see and why.</p></div>
+        <div class="privacy-hero panel"><span class="quick-icon icon-mint">◇</span><div><div class="eyebrow">PRIVACY PROMISE</div><h2>You stay in control of what you share.</h2><p>The AI assistant sends your question and recent chat context to a Netlify server function and OpenAI to generate a reply. Do not include passwords, one-time codes, or sensitive personal details. Device checks remain sample data and do not inspect your phone.</p></div><span class="privacy-stamp">AI<br>CONNECTED</span></div>
+        <div class="section-heading compact"><div><h2>What a real mobile app may access</h2><p>Only with platform support and your permission.</p></div></div><div class="privacy-list"><article><span class="privacy-check">✓</span><div><b>Basic device security settings</b><p>Some OS versions expose lock, update, or encryption status. Availability varies by platform.</p></div><span class="permission-tag">LIMITED</span></article><article><span class="privacy-check">✓</span><div><b>App list and permissions</b><p>Android may expose selected package details; iOS heavily limits visibility into other apps.</p></div><span class="permission-tag">PLATFORM-DEPENDENT</span></article><article><span class="privacy-no">×</span><div><b>Private messages, passwords, or keystrokes</b><p>CyberShield does not read private messages, capture passwords, or record calls.</p></div><span class="permission-tag no-tag">NEVER</span></article><article><span class="privacy-no">×</span><div><b>Another app’s private files</b><p>Android and iOS isolate app data. This app cannot bypass those protections.</p></div><span class="permission-tag no-tag">NOT AVAILABLE</span></article></div>
+        <div class="privacy-columns"><article class="panel"><h3>Before data goes to an AI</h3><p>CyberShield sends your question and recent chat turns to its Netlify function, then to OpenAI for a response. Device signals are not sent. Do not share passwords, verification codes, or private identifiers. OpenAI API inputs may be retained for abuse monitoring for up to 30 days by default. Do not send confidential information.</p><span class="coming-tag">Backend policy required</span></article><article class="panel"><h3>Monitoring you control</h3><p>Choose which optional checks to run. You should be able to pause monitoring, remove stored history, and use educational features without granting device access.</p><label class="toggle-row"><span>Device check reminders <small>Demo preference only</small></span><input type="checkbox" checked id="reminder-toggle"><i></i></label></article></div>
+      </section>
+      <footer class="global-footer"><span>CyberShield AI <span>·</span> Stay curious. Stay safer.</span><span>DEMO EXPERIENCE</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modal" aria-hidden="true"><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow" id="modal-kicker">QUICK GUIDE</div><h2 id="modal-title"></h2><div id="modal-body"></div><button class="button button-dark" id="modal-done">Got it <span>→</span></button></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
